@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Insert title here</title>
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="js/jquery.ajaxfileupload.js"></script>
+	<script type="text/javascript">
+	
+		function upLoad(){
+			console.log('1')
+			var doUrl="TestServlet";
+		  	$.ajaxFileUpload({
+		  	url : "FileUpload.do" ,
+		   	type: "post",
+		   	fileElementId: 'imageUpload',
+		   	dataType : 'text',
+		   	success : function(data) {
+			   	if(data=="true"){
+			      	 alert("檔案上傳成功");
+			   	}else{
+			      	 alert("檔案上傳失敗");
+			    }
+		   }
+		  });
+		}
+	</script>
+</head>
+
+<body>
+	<input type="file"  id="imageUpload" name="imageUpload"  multiple="multiple"/>
+	<input type="button" value="upLoad" onclick="upLoad()" /><br/>
+</body>
+
+</html>
